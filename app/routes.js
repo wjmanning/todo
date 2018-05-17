@@ -18,6 +18,7 @@ module.exports = function (app) {
     // get all todos
     app.get('/api/todos', function (req, res) {
         // use mongoose to get all todos in the database
+        console.log("Get running")
         getTodos(res);
     });
 
@@ -29,6 +30,7 @@ module.exports = function (app) {
             text: req.body.text,
             done: false
         }, function (err, todo) {
+	    console.log("Post finished ==>> err and returns ==>> " + err + ' ' + todo)
             if (err)
                 res.send(err);
 
